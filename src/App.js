@@ -7,7 +7,7 @@ import Main from "./pages/Main";
 import Login from "./pages/Login";
 
 import Header from "./components/views/Header";
-
+import Visual from "./components/views/Visual";
 
 function App (props) {
 
@@ -16,11 +16,11 @@ function App (props) {
     return (
         <Container>
             <Header/>
+            <Visual/>
             <Switch>
-                <Route path={'/'} component={"Main"}></Route>
+                <Route exact path={'/'} component={"Main"}></Route>
                 <Route path={'/login'} component={"Login"}></Route>
             </Switch>
-
         </Container>
     )
 }

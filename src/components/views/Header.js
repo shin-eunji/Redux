@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import {AiOutlineSearch} from 'react-icons/ai';
+
+import Search from "../Module/Search";
+
 import {FiMoreHorizontal} from 'react-icons/fi';
-import {IoIosClose} from 'react-icons/io';
+import {Link} from "react-router-dom";
 
 function Header (props) {
 
@@ -11,7 +13,7 @@ function Header (props) {
     return (
         <Container>
             <TopHeader>
-                <Logo>
+                <Logo to={'/'}>
                     <svg width="32" height="32" className="_1Jlgk" version="1.1" viewBox="0 0 32 32"
                          aria-labelledby="unsplash-home" aria-hidden="false"><title id="unsplash-home">Unsplash
                         Home</title>
@@ -23,9 +25,7 @@ function Header (props) {
                     </LogoTitle>
                 </Logo>
                 <SearchForm>
-                    <AiOutlineSearch className={"search"}/>
-                    <input type="text"/>
-                    <IoIosClose className={"search_close"}/>
+                    <Search/>
                 </SearchForm>
                 <QuickMenu>
                     <Menu>
@@ -36,7 +36,7 @@ function Header (props) {
                         </MenuItem>
                         <MenuItem className={"btn"}>Submit a photo</MenuItem>
                         <Info>
-                            <MenuItem className={"login"}>Login</MenuItem>
+                            <MenuItem to={"/login"} className={"login"}>Login</MenuItem>
                             <MenuItem className={"btn_mint"}>Join Free</MenuItem>
                         </Info>
                     </Menu>
@@ -45,40 +45,40 @@ function Header (props) {
 
             <Gnb>
                 <Nav>
-                    <Link className={"nav_first"}>Editorial</Link>
+                    <Content className={"nav_first"}>Editorial</Content>
                     <NavItem>
-                        <Link>
+                        <Content>
                             <p>FEATURED</p>
                             Work From Home
-                        </Link>
-                        <Link>
+                        </Content>
+                        <Content>
                             <p>FEATURED</p>
                             Technology
-                        </Link>
-                        <Link>Wallpapers</Link>
-                        <Link>Travel</Link>
-                        <Link>Nature</Link>
-                        <Link>Travel</Link>
-                        <Link>Nature</Link>
-                        <Link>Film</Link>
-                        <Link>Textures & Patterns</Link>
-                        <Link>Current Events</Link>
-                        <Link>People</Link>
-                        <Link>Business & Work</Link>
-                        <Link>COVID-19</Link>
-                        <Link>Animals</Link>
-                        <Link>Interiors</Link>
-                        <Link>Architecture</Link>
-                        <Link>Food & Drink</Link>
-                        <Link>Athletics</Link>
-                        <Link>Spirituality</Link>
-                        <Link>Health & Wellness</Link>
-                        <Link>Fashion</Link>
-                        <Link>Experimental</Link>
-                        <Link>Arts & Culture</Link>
-                        <Link>History</Link>
+                        </Content>
+                        <Content>Wallpapers</Content>
+                        <Content>Travel</Content>
+                        <Content>Nature</Content>
+                        <Content>Travel</Content>
+                        <Content>Nature</Content>
+                        <Content>Film</Content>
+                        <Content>Textures & Patterns</Content>
+                        <Content>Current Events</Content>
+                        <Content>People</Content>
+                        <Content>Business & Work</Content>
+                        <Content>COVID-19</Content>
+                        <Content>Animals</Content>
+                        <Content>Interiors</Content>
+                        <Content>Architecture</Content>
+                        <Content>Food & Drink</Content>
+                        <Content>Athletics</Content>
+                        <Content>Spirituality</Content>
+                        <Content>Health & Wellness</Content>
+                        <Content>Fashion</Content>
+                        <Content>Experimental</Content>
+                        <Content>Arts & Culture</Content>
+                        <Content>History</Content>
                     </NavItem>
-                    <Link className={"nav_last"}>View all</Link>
+                    <Content className={"nav_last"}>View all</Content>
                 </Nav>
             </Gnb>
         </Container>
@@ -95,10 +95,11 @@ const TopHeader = styled.div`
   align-items:center;
   justify-content: space-between;
 `;
-const Logo = styled.div`
+const Logo = styled(Link)`
   display: flex;
   align-items: center;
   justify-content:flex-start;
+  text-decoration: none;
 `;
 const LogoTitle = styled.div`
   color: #111;
@@ -118,36 +119,16 @@ const LogoTitle = styled.div`
   }
 `;
 const SearchForm = styled.div`
-  display:flex;
-  align-items:center;
-  justify-content:flex-start;
-  flex: 1;
-  background: #eee;
-  border: 1px solid #fff;
-  -webkit-border-radius: 60px;-moz-border-radius: 60px;border-radius: 60px;
-  &:hover {
-    border: 1px solid #eee;
-  }
-  .search {
-    font-size: 20px;
-    margin: 10px;
-    color: #aaa;
-    &:hover {
-      color: #111;
-    }
-  }
-  input {
-    border:none;
-    background:none;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
     flex: 1;
-    padding: 10px 0 10px 10px;
-  }
-  .search_close {
-    font-size: 26px;
-    margin: 10px;
-    font-weight: 500;
-    color: #999
-  }
+    background: #eee;
+    border: 1px solid #fff;
+    -webkit-border-radius: 60px;-moz-border-radius: 60px;border-radius: 60px;
+    &:hover {
+      border: 1px solid #ddd;
+    }
 `;
 const QuickMenu = styled.div`
     display:flex;
@@ -158,14 +139,15 @@ const QuickMenu = styled.div`
 const Menu = styled.div`
     display:flex;
     align-items:center;
-    margin: 0 10px;
+    margin-left: 10px;
 `;
-const MenuItem = styled.div`
+const MenuItem = styled(Link)`
     color: #666;
     font-size: 16px;
     font-weight: 500;
     padding: 10px 20px;
     display:block;
+    text-decoration: none;
     cursor: pointer;
     &:hover {
       color: #333;
@@ -253,7 +235,7 @@ const NavItem = styled.div`
     flex: 1;
     overflow-x: auto;
 `;
-const Link = styled.div`
+const Content = styled.div`
     color: #777;
     font-size: 16px;
     font-weight: 600;
