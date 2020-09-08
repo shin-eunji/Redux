@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import {AiOutlineSearch} from 'react-icons/ai';
-import {FiMoreHorizontal} from 'react-icons/fi'
+import {FiMoreHorizontal} from 'react-icons/fi';
+import {IoIosClose} from 'react-icons/io';
 
 function Header (props) {
 
@@ -24,7 +25,7 @@ function Header (props) {
                 <SearchForm>
                     <AiOutlineSearch className={"search"}/>
                     <input type="text"/>
-                    <AiOutlineSearch Color={"#333"} fontSize={"20"}/>
+                    <IoIosClose className={"search_close"}/>
                 </SearchForm>
                 <QuickMenu>
                     <Menu>
@@ -140,6 +141,12 @@ const SearchForm = styled.div`
     background:none;
     flex: 1;
     padding: 10px 0 10px 10px;
+  }
+  .search_close {
+    font-size: 26px;
+    margin: 10px;
+    font-weight: 500;
+    color: #999
   }
 `;
 const QuickMenu = styled.div`
