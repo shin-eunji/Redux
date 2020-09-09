@@ -1,52 +1,61 @@
 import React from 'react';
 import styled from 'styled-components';
-import {AiOutlineSearch} from "react-icons/ai/index";
 import Search from "../Module/Search";
 
 function Visual (props) {
 
-    const {} = props;
+    const {
+    } = props;
 
     return (
         <Container>
-            <VisualBox>
-                <Content>
-                    <Title>
-                        <h3>Unsplash</h3>
-                        <p>The internet’s source of <span className={"link"}>freely-usable images.</span><br/>
-                            Powered by creators everywhere.</p>
-                    </Title>
-                    <SearchForm>
-                        <Search/>
-                    </SearchForm>
-                    <TagBox>
-                        <TagTitle>Trending:</TagTitle>
-                        <TagItem>flower</TagItem>
-                        <TagItem>wallpapers</TagItem>
-                        <TagItem>backgrounds</TagItem>
-                        <TagItem>happy</TagItem>
-                        <TagItem>love</TagItem>
-                    </TagBox>
-                </Content>
-            </VisualBox>
-            <VisualInfo>
-                <Info>
-                    <Text><Link>Photo of the Day</Link> by <Link>Jack B</Link></Text>
-                    <Text>Read more about the <Link>Unsplash License</Link></Text>
-                    <Text><Link>Create your website today.</Link></Text>
-                </Info>
-            </VisualInfo>
+            <img src={"https://source.unsplash.com/WLUHO9A_xik/1600x900"} alt={"photo"}/>
+            <VisualTitle>
+                <VisualBox>
+                    <Content>
+                        <Title>
+                            <h3>Unsplash</h3>
+                            <p>The internet’s source of <span className={"link"}>freely-usable images.</span><br/>
+                                Powered by creators everywhere.</p>
+                        </Title>
+                        <SearchForm>
+                            <Search/>
+                        </SearchForm>
+                        <TagBox>
+                            <TagTitle>Trending:</TagTitle>
+                            <TagItem>flower</TagItem>
+                            <TagItem>wallpapers</TagItem>
+                            <TagItem>backgrounds</TagItem>
+                            <TagItem>happy</TagItem>
+                            <TagItem>love</TagItem>
+                        </TagBox>
+                    </Content>
+                </VisualBox>
+                <VisualInfo>
+                    <Info>
+                        <Text><LinkNotice>Photo of the Day</LinkNotice> by <LinkNotice>Jack B</LinkNotice></Text>
+                        <Text>Read more about the <LinkNotice>Unsplash License</LinkNotice></Text>
+                        <Text><LinkNotice>Create your website today.</LinkNotice></Text>
+                    </Info>
+                </VisualInfo>
+            </VisualTitle>
         </Container>
     )
 }
 
 const Container = styled.div`
   width: 100%;
-  height: 600px;
   display:flex;
   flex-direction:column;
-  background: url("https://images.unsplash.com/photo-1489875347897-49f64b51c1f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80") 50% 100% / cover no-repeat;
 `
+const VisualTitle = styled.div`
+  position:absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+`;
 const VisualBox = styled.div`
   display:flex;
   flex-direction:column;
@@ -117,10 +126,11 @@ const Text = styled.div`
     font-size: 14px;
     font-weight: 500;
 `;
-const Link = styled.div`
+const LinkNotice = styled.div`
     color: #eee;
     font-size: 14px;
     font-weight: 500;
     padding: 0 .4rem;
+    cursor: pointer;
 `;
 export default Visual;
